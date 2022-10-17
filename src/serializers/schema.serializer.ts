@@ -1,14 +1,16 @@
 import * as yup from 'yup'
 
 const userWithOutPassword = yup.object().shape({
-    id: yup.string(),
-    name: yup.string(),
-    email: yup.string().email(),
-    createdAt: yup.date(),
-    updatedAt: yup.date(),
-    isAdm: yup.boolean(),
-    isActive: yup.boolean()
+    id: yup.string().notRequired(),
+    name: yup.string().notRequired(),
+    email: yup.string().email().notRequired(),
+    createdAt: yup.date().notRequired(),
+    updatedAt: yup.date().notRequired(),
+    isAdm: yup.boolean().notRequired(),
+    isActive: yup.boolean().notRequired()
 
 })
 
-export { userWithOutPassword }
+const arrayUsersWithOutPassword = yup.array(userWithOutPassword)
+
+export { userWithOutPassword, arrayUsersWithOutPassword }

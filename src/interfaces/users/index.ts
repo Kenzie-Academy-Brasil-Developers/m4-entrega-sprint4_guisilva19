@@ -9,8 +9,9 @@ export interface IUser {
     id?: string
     name: string
     email: string
-    password: string;
+    password: string
     isAdm: boolean
+    isActive?: true
     createdAt?: Date
     updatedAt?: Date
 }
