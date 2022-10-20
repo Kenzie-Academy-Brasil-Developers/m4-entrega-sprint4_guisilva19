@@ -4,21 +4,13 @@ import 'dotenv/config'
 
 const verifyIsAdmMiddleware = async (req: Request, res: Response, next: NextFunction) => {
     const isAdm = req.user.isAdm
-    const idRoute = req.params.id
-    const idToken = req.user.id
 
-
-    if (isAdm) {
-        return next()
+    if (!isAdm) {
+        return res.status(403).json({ message: "Unauthorized" });
     }
 
-    if (idToken === idRoute) {
-        return next()
-    }
+    next()
 
-    return res.status(401).json({
-        message: "It's not admin"
-    })
 }
 
 export default verifyIsAdmMiddleware
