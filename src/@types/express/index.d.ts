@@ -8,9 +8,7 @@ declare global {
                 isAdm: boolean
                 isActive: boolean
             },
-            userValidated: {
-
-            }
+            validateUser: any
         }
     }
 }
